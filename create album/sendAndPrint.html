@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sent and print the album</title>
+    <link rel="icon" href="/create album/images/Icon.png">
+    <link rel="stylesheet" href="/create album/create album.css">
+</head>
+
+<body>
+    <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Your paper is perfect!!
+    </h1>
+    <div id="b">
+        <button class="b">שלח</button>
+        <button class="b">הדפס</button>
+    </div>
+    <div class="paper1 p">
+
+        <div>
+            <div class="img" id="w1"><img id="0" src="/create album/images/הוסף תמונה.png" alt=""></div>
+
+            <div class="img" id="w2"><img id="1" src="/create album/images/הוסף תמונה.png" alt=""></div>
+        </div>
+        <div>
+            <div class="img" id="w3"><img id="2" src="/create album/images/הוסף תמונה.png" alt=""></div>
+            <div class="img" id="w4"><img id="3" src="/create album/images/הוסף תמונה.png" alt=""></div>
+        </div>
+    </div>
+    <div class="paper2 p">
+        <div class="img" id="w5"><img id="4" src="/create album/images/הוסף תמונה.png" alt=""></div>
+    </div>
+    <div class="paper3 p">
+        <div class="img" id="w6"><img id="5" src="/create album/images/הוסף תמונה.png" alt=""></div>
+        <div id="div2">
+            <div class="img" id="w7"><img id="6" src="/create album/images/הוסף תמונה.png" alt=""></div>
+            <div class="img" id="w8"><img id="7" src="/create album/images/הוסף תמונה.png" alt=""></div>
+        </div>
+    </div>
+    <div class="paper4 p">
+        <div class="img" id="w9"><img id="8" src="/create album/images/הוסף תמונה.png" alt=""></div>
+        <input type="text" placeholder="כתוב כאן">
+    </div>
+
+
+</body>
+<!-- <script src="/create album/create album.js"></script> -->
+<script>
+    window.onload = () => {
+        const a = document.querySelectorAll(".p");
+        a.forEach(e => {
+            e.style = 'display: none;';
+        });
+
+        if (sessionStorage.getItem('myPaper')) {
+            const a = sessionStorage.getItem('myPaper');
+            const b = JSON.parse(a);
+            const keys = Object.keys(b);
+            keys.forEach(id => {
+                if (id != 'index') {
+                    let picture = document.getElementById([id]);
+                    document.getElementById(`${id}`).style.opacity = '0';
+                    picture.parentElement.style = `background: url(${JSON.stringify(b[id])}) center / cover no-repeat`;
+                }
+                else {
+                    const p = document.querySelector(`.paper${[id] + 1}`);
+                    if ([id] + 1 === 4)
+                        p.style = 'display: block';
+                    else if ([id] + 1 === 3)
+                        p.style = 'display: grid';
+                    else
+                        p.style = 'display: flex';
+                }
+            });
+        }
+    }
+
+</script>
+
+</html>
+
+<style>
+    body {
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #b {
+        width: 20%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .b {
+        width: 50%;
+        /* display: inline-block; */
+        padding: 3%;
+        /* margin-bottom: 1%; */
+    }
+</style>

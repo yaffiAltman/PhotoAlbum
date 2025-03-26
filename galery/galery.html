@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יצירת אלבום בהרכבה אישית- My Album</title>
+    <link rel="icon" href="./images/Icon.png">
+    <link rel="stylesheet" href="/header/h.css">
+    <link rel="stylesheet" href="/footer/footer.css">
+    <link rel="stylesheet" href="./galery.css">
+    <link rel="stylesheet" href="/header/myPictures.css">
+</head>
+<body>
+<header>
+    <div id="headerRespon">
+        <img src="./images/לוגו.png" alt="">
+        <img src="./images/burger.svg" alt="" id="burger">
+    </div>
+    <nav class="links">
+        <img src="./images/לוגו.png" alt="">
+        <a href="/home/home.html">דף הבית</a>
+        <a href="/galery/galery.html" style="border: rgb(231, 228, 228) solid 2px;
+        border-bottom-right-radius: 17px;
+        border-top-right-radius: 17px;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        padding-right: 1.1%;
+        border-left: none;">גלריה</a>
+        <a href="/create album/create album.html">ליצירת אלבום</a>
+        <a href="/advertisements/advertisements.html">פרסומות</a>
+        <button href="" class="myPictures">התמונות שלי<span> »</span></button>
+        <button onclick="modal.style.display='block'">החלף משתמש<span> »</span></button>
+        <div>
+            <lable for="sort" id="select">מיין לפי:</lable>
+            <select name="sort" id="sort">
+                <option value="">הכל</option>
+                <option value="food">אוכל</option>
+                <option value="drawing">ציורים</option>
+                <option value="picture">תמונות</option>
+                <option value="animal">חיות</option>
+                <option value="background">רקעים</option>
+                <option value="flawers">פרחים</option>
+                <option value="efect">אפקטים</option>
+
+            </select><br />
+        </div>
+       
+    </nav>
+    <div id="responsivy" style="display: none;">
+        <nav>
+            <a href="/home/home.html">דף הבית<span data-font-size="19" data-line-height="19px"> ❯❯</span></a>
+            <a href="/galery/galery.html">גלריה<span data-font-size="19" data-line-height="19px"> ❯❯</span></a>
+            <a href="/create album/create album.html">ליצירת אלבום<span data-font-size="19" data-line-height="19px">
+                    ❯❯</span></a>
+            <a href="/advertisements/advertisements.html">פרסומות<span data-font-size="19" data-line-height="19px">
+                    ❯❯</span></a>
+            <button href="" class="myPictures">התמונות שלי<span> »</span></button>
+            <div>
+                <lable for="sort" id="select">מיין לפי:</lable>
+                <select name="sort" id="sort">
+                    <option value="">הכל</option>
+                    <option value="food">אוכל</option>
+                    <option value="drawing">ציורים</option>
+                    <option value="picture">תמונות</option>
+                    <option value="animal">חיות</option>
+                    <option value="background">רקעים</option>
+                    <option value="flawers">פרחים</option>
+                    <option value="efect">אפקטים</option>
+                    <option value="food">אוכל</option>
+                </select><br />
+            </div>
+            <button onclick="modal.style.display='block'">החלף משתמש</button>
+        </nav>
+    </div>
+</header>
+
+<!-- section -->
+
+<section>
+
+    <div class="images">
+
+    </div>
+    <div id="login">
+        <!-- החלונית שנפתחת להוספת משתמש -->
+
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                body {
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+
+                /* Full-width input fields */
+                input[type=text],
+                input[type=email] {
+                    width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                }
+
+                /* Set a style for all buttons */
+                .container button {
+                    background-color: rgba(255, 140, 115);
+                    color: white;
+                    padding: 14px 20px;
+                    margin: 8px 0;
+                    border: none;
+                    cursor: pointer;
+                    width: 100%;
+                }
+
+                .container button:hover {
+                    opacity: 0.8;
+                }
+
+
+                /* Center the image and position the close button */
+                .imgcontainer {
+                    text-align: center;
+                    margin: 24px 0 12px 0;
+                    position: relative;
+                }
+
+                img.User {
+                    width: 20%;
+                    border-radius: 50%;
+                }
+
+                .container {
+                    padding: 16px;
+                }
+
+                span.eml {
+                    float: right;
+                    padding-top: 16px;
+                }
+
+                /* The Modal (background) */
+                .modal {
+                    display: none;
+                    /* Hidden by default */
+                    position: fixed;
+                    /* Stay in place */
+                    z-index: 1;
+                    /* Sit on top */
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    /* Full width */
+                    height: 100%;
+                    /* Full height */
+                    overflow: auto;
+                    /* Enable scroll if needed */
+                    background-color: rgb(0, 0, 0);
+                    /* Fallback color */
+                    background-color: rgba(0, 0, 0, 0.4);
+                    /* Black w/ opacity */
+                    padding-top: 60px;
+                }
+
+                /* Modal Content/Box */
+                .modal-content {
+                    background-color: #fefefe;
+                    margin: 5% auto 15% auto;
+                    /* 5% from the top, 15% from the bottom and centered */
+                    border: 1px solid #888;
+                    width: 60%;
+                    /* Could be more or less, depending on screen size */
+                }
+
+                /* The Close Button (x) */
+                .close {
+                    position: absolute;
+                    right: 25px;
+                    top: 0;
+                    color: #000;
+                    font-size: 35px;
+                    font-weight: bold;
+                }
+
+                .close:hover,
+                .close:focus {
+                    color: red;
+                    cursor: pointer;
+                }
+
+                /* Add Zoom Animation */
+                .animate {
+                    -webkit-animation: animatezoom 0.6s;
+                    animation: animatezoom 0.6s
+                }
+
+                @-webkit-keyframes animatezoom {
+                    from {
+                        -webkit-transform: scale(0)
+                    }
+
+                    to {
+                        -webkit-transform: scale(1)
+                    }
+                }
+
+                @keyframes animatezoom {
+                    from {
+                        transform: scale(0)
+                    }
+
+                    to {
+                        transform: scale(1)
+                    }
+                }
+
+                /* Change styles for span  on extra small screens */
+                @media screen and (max-width: 300px) {
+                    span.eml {
+                        display: block;
+                        float: none;
+                    }
+                }
+            </style>
+        </head>
+
+        <body>
+
+            <div id="id01" class="modal">
+
+                <form class="modal-content animate" action="" method="">
+                    <div class="imgcontainer"
+                        onclick="document.getElementById('id01').style.display='none'">
+                        <span class="close" title="Close Modal">&times;</span>
+                        <img src="./images/person.svg" alt="User" class="User">
+                    </div>
+
+                    <div class="container">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+
+                        <label for="eml"><b>Email</b></label>
+                        <input type="email" placeholder="Enter Email" name="eml" required>
+
+                        <button type="submit">Login</button>
+                    </div>
+
+                </form>
+                
+            </div>
+
+            <script>
+                
+            </script>
+
+        </body>
+
+
+    </div>
+    <script src="./jquery-3.2.1.js"></script>
+</section>
+
+<!-- footer -->
+
+<footer>
+    <nav>
+        <a href="/home/home.html">דף הבית<span data-font-size="19" data-line-height="19px"> ❯❯</span></a>
+        <a href="/galery/galery.html">גלריה<span data-font-size="19" data-line-height="19px"> ❯❯</span></a>
+        <a href="/create album/create album.html">ליצירת אלבום<span data-font-size="19" data-line-height="19px">
+                ❯❯</span></a>
+        <a href="/advertisements/advertisements.html">פרסומות<span data-font-size="19" data-line-height="19px">
+                ❯❯</span></a>
+        <a href="">התמונות שלי<span data-font-size="19" data-line-height="19px"> ❯❯</span></a>
+    </nav>
+    <div>
+        <h2>😉נשמח לקבל משוב</h2>
+        <h3><img src="./images/telephone.svg" alt=""> 055-776-8080</h3>
+    </div>
+</footer>
+<script src="/header/myPictures.js"></script>
+<script src="/header/h.js"></script>
+<script src="./galery.js"></script>
+
+    
+</body>
+
+</html>
